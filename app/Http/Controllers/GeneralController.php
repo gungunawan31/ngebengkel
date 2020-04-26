@@ -151,4 +151,9 @@ class GeneralController extends BaseController
 			}
 		}
 	}
+
+	public function label()
+	{
+		return ["data"=>["label"=>generalModel::getLabel(),"value"=>generalModel::getvalue()]];
+	}
 }

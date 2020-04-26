@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use PhpParser\Node\Stmt\Static_;
 
 class generalModel extends Model
 {
@@ -43,5 +44,15 @@ class generalModel extends Model
         return DB::table('table_mecanic')
                     ->where('id_mecanic',$data['id_mecanic'])
                     ->update($data);
+    }
+
+    public static function getLabel()
+    {
+        return DB::select("SELECT MONTH(created_at) as bulan FROM `users` where role = 'user' group by MONTH(created_at) ORDER BY created_at asc");
+    }
+
+    public static function getvalue()
+    {
+        return DB::select("SELECT count(*) as pendaftar FROM `users` where role = 'user' group by MONTH(created_at) ORDER BY created_at asc");
     }
 }

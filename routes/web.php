@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 Route::get('/home','GeneralController@dashboard')->name('home');
+Route::get('/getLabel','GeneralController@label')->name('home');
 Route::get('/mechanic','GeneralController@mechanic')->name('mechanic');
 Route::post('/insertMechanic','GeneralController@addMechanic')->name('insertMechanic');
 Route::get('/getMechanic','GeneralController@getAllMechanic')->name('getMechanic');

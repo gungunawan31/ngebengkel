@@ -38,7 +38,8 @@ class userController extends Controller
             "nama_lenkap"=>$request->NamaLengkap,
             "email"=>$request->Email,
             "no_hp"=>$request->NoHp,
-            "role"=>'user'
+            "role"=>'user',
+            "created_at"=>date('Y-m-d h:i:s')
         ];
 
         $query = userModel::Register($data);
