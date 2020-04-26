@@ -14,14 +14,14 @@ class CreateTableMecanic extends Migration
     public function up()
     {
         Schema::create('table_mecanic', function (Blueprint $table) {
-            $table->string('id_mecanic')->nullable();
+            $table->string('id_mecanic',100)->nullable();
             $table->primary('id_mecanic');
             $table->string('nama_mecanic')->nullable();
             $table->text('alamat_mecanic')->nullable();
             $table->date('tlglahir_mecanic')->nullable();
             $table->string('tempatlahir_mecanic')->nullable();
             $table->string('no_tlpn')->nullable();
-            $table->string('email_mecanic')->nullable()->unique();
+            $table->string('email_mecanic',100)->nullable()->unique();
             $table->string('status_job')->nullable();
             $table->string('status_mecanic')->nullable();
             $table->string('created_by')->nullable();

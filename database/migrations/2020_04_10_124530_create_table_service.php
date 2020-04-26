@@ -14,7 +14,7 @@ class CreateTableService extends Migration
     public function up()
     {
         Schema::create('table_service', function (Blueprint $table) {
-            $table->string('id_service')->nullable();
+            $table->string('id_service',100)->nullable();
             $table->primary('id_service');
             $table->string('id')->nullable();
             $table->date('date_book')->nullable();
