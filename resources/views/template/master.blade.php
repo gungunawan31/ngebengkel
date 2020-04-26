@@ -87,14 +87,14 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a href="pages/widgets.html" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Diagram Pendaftaran
               </p>
             </a>
-          </li>
+          </li> --}}
           <li class="nav-item">
               <a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link"> 
                 <i class="nav-icon fas fa-sign-out-alt"></i>
