@@ -74,6 +74,10 @@ class userController extends Controller
             "date_book"=>$params->date_book,
             "id_mecanic"=>$params->id_mecanic,
             "complaint"=>$params->complaint,
+            "address"=>$params->address,
+            "city"=>$params->city,
+            "plat"=>$params->plat,
+            "jenis_kendaraan"=>$params->jenis_kendaraan,
             "created_at"=>date("Y-m-d H:i:s")
         ];
         $InsertBook = userModel::InsertBook($data);

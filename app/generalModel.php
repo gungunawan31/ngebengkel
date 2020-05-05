@@ -48,7 +48,7 @@ class generalModel extends Model
 
     public static function getLabel()
     {
-        return DB::select("SELECT MONTH(created_at) as bulan FROM `users` where role = 'user' group by MONTH(created_at) ORDER BY created_at asc");
+        return DB::select("SELECT DATE(created_at) as bulan from `users` where role = 'user' group by DATE(created_at) ORDER BY created_at asc");
     }
 
     public static function getvalue()

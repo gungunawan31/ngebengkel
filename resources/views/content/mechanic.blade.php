@@ -134,7 +134,7 @@
                       "status_job":"status_job",
                       "render":function(data,type,row,status_job){
                           if(row.status_job==null){
-                                return '<center>Ready</center'
+                                return '<center>Ready</center>'
                             }else if(row.status_job=='1'){
                                 return '<center>On Job</center'
                             }
@@ -152,7 +152,14 @@
                         }
                     },
                 ],
-                "responsive": true
+                "responsive": true,
+                dom: 'Bfrtip',
+                buttons: [
+                    'pageLength',
+                    { extend: 'pdf', text: '<span class="btn btn-sm btn-info mr-2"><i class="fas fa-file-pdf fa-1x" aria-hidden="true"></i> PDF </span>'},
+                    { extend: 'csv', text: '<span class="btn btn-sm btn-info mr-2"><spa class="fas fa-file-csv fa-1x"></i> CSV </span>'},
+                    { extend: 'excel', text: '<span class="btn btn-sm btn-info mr-2"><i class="fas fa-file-excel" aria-hidden="true"></i> EXCEL </span>' },
+                ]
             });
 
             

@@ -85,6 +85,29 @@
             </div>
         </div>
         {{-- modal end --}}
+        {{-- modal --}}
+        <div class="modal fade" id="ModalMaps" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Maps Pengantaran</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id=modal_body>
+                        {{-- <div style="width: 100%">
+                            <iframe id="frame" width="100%" height="600" src="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/draw-radius-circle-map/">Create radius map</a>
+                            </iframe>
+                        </div> --}}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
     <!-- /.content -->
 </div>
@@ -137,12 +160,19 @@
                             }else if(row.flag_status=='2'){
                                 return '<center><badge class="btn btn-sm btn-success mb-2" onclick="CarStatus('+"'"+data+"','done'"+')" title="Service Done"><i class="fas fa-check-double"></i></badge><badge class="btn btn-sm btn-danger ml-2 mb-2" onclick="deleteService('+"'"+data+"'"+')" title="Delete Service"><i class="fas fa-trash"></i></badge></center>'
                             }else{
-                                return 'no option available'
+                                return '<center><badge class="btn btn-sm btn-success mr-2" onclick="Maps('+"'"+data+"'"+')" title="Maps"><i class="fas fa-map-marked"></i></badge></center>'
                             }
                         }
                     },
                 ],
-                "responsive": true
+                "responsive": true,
+                dom: 'Bfrtip',
+                buttons: [
+                    'pageLength',
+                    { extend: 'pdf', text: '<span class="btn btn-sm btn-info mr-2"><i class="fas fa-file-pdf fa-1x" aria-hidden="true"></i> PDF </span>'},
+                    { extend: 'csv', text: '<span class="btn btn-sm btn-info mr-2"><spa class="fas fa-file-csv fa-1x"></i> CSV </span>'},
+                    { extend: 'excel', text: '<span class="btn btn-sm btn-info mr-2"><i class="fas fa-file-excel" aria-hidden="true"></i> EXCEL </span>' },
+                ]
             });
 
             
@@ -320,6 +350,28 @@
             })
         }
 
+        function gantiSpasi(url)
+        {
+            var link = url.replace(/ /g,'%20');
+            var newlink = link.replace(/,/g,'%2C');
+            return newlink;
+        }
+
+        function Maps(id)
+        {
+            $('#diviframe').remove()
+            $.ajax({
+                url:"{{url('/getDetailServiceById')}}/"+id,
+                success:function(response){
+                    var join = response.data.address+","+response.data.city
+                    var link = gantiSpasi(join)
+                    $("#modal_body").append('<div id="diviframe" style="width: 100%"><iframe width="100%" height="600" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q='+link+'+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/draw-radius-circle-map/">Google Maps Radius</a></iframe></div><br />')
+                    $('#ModalMaps').modal('show');
+                    $('#mops').attr('hidden',false)
+                    console.log(url)
+                }
+            })
+        }
 
     </script>
 @endsection

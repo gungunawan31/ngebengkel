@@ -43,6 +43,7 @@ Route::get('/UpdateStatusTime/{id}/{status}','TimeController@StatusTime')->name(
 //management service
 Route::get('/service','ServiceController@index')->name('service');
 Route::get('/getService','ServiceController@show')->name('getService');
+Route::get('/getDetailServiceById/{id}','ServiceController@detail')->name('getService');
 Route::get('/deleteService/{id}','ServiceController@destroy')->name('deleteService');
 Route::get('/updateCar/{id}/{status}','ServiceController@updateCar')->name('updateCar');
 Route::post('/insertTimeService','ServiceController@update')->name('insertTimeService');

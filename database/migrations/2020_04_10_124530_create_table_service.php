@@ -20,6 +20,10 @@ class CreateTableService extends Migration
             $table->date('date_book')->nullable();
             $table->string('id_time')->nullable();
             $table->text('complaint')->nullable();
+            $table->text('address')->nullable();
+            $table->string('city')->nullable();
+            $table->string('plat')->nullable();
+            $table->string('jenis_kendaraan')->nullable();
             $table->string('id_mecanic')->nullable();
             $table->string('flag_status')->nullable();
             $table->string('rating')->nullable();

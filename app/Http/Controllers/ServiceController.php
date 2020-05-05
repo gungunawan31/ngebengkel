@@ -135,4 +135,9 @@ class ServiceController extends Controller
             return ["status"=>"failed","message"=>"update failed"];
         }
     }
+
+    public function detail ($id)
+    {
+        return ["data"=>Service::detailService($id)];
+    }
 }

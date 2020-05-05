@@ -46,4 +46,12 @@ class Service extends Model
                     ->update(["flag_status"=>$status]);
     }
 
+    public static function detailService($id)
+    {
+        return DB::table('table_service')
+                    ->select('city','address')
+                    ->where('id_service',$id)
+                    ->first();
+    }
+
 }
