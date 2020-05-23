@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-// Route::get('/','GeneralController@index')->name('dasboard');
+Route::get('/','Auth\LoginController@login')->name('login');
 
 Auth::routes();
 Route::get('/home','GeneralController@dashboard')->name('home');
