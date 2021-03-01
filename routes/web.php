@@ -48,5 +48,21 @@ Route::get('/deleteService/{id}','ServiceController@destroy')->name('deleteServi
 Route::get('/updateCar/{id}/{status}','ServiceController@updateCar')->name('updateCar');
 Route::post('/insertTimeService','ServiceController@update')->name('insertTimeService');
 
+//managemenrt barang
+Route::get('/barang','BarangController@index')->name('barang');
+Route::get('/getBarang','BarangController@show')->name('getBarang');
+Route::get('/UpdateStatusBarang/{id}/{status}','BarangController@StatusBarang')->name('UpdateStatusBarang');
+Route::get('/deleteBarang/{id}','BarangController@deleteBarang')->name('deleteBarang');
+Route::post('/insertBarang','BarangController@addBarang')->name('insertBarang');
+Route::post('/UpdateBarang','BarangController@updateBarang')->name('UpdateBarang');
+Route::get('/getDataBarangById/{id}','BarangController@getBarang')->name('getDataBarangById');
+
+//management produk
+Route::get('/produk','ProdukController@index')->name('produk');
+Route::post('/insertProduk/create','ProdukController@create')->name('insertProduk');
+Route::get('/produk/{id}/edit','ProdukController@edit')->name('editproduk');
+Route::post('produk/{id}/update', 'ProdukController@update')->name('updateproduk');
+Route::get('produk/{id}/delete', 'ProdukController@delete')->name('deleteproduk');
+Route::get('produk/{id}/profile', 'ProdukController@profile')->name('profileproduk');
 
 // Route::get('/test','GeneralController@test')->name('jamban');
